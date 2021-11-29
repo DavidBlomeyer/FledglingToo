@@ -59,6 +59,7 @@
     <Compile Include="11_ProjectCreate.cs" />
     <Compile Include="20_RequirementListItem.cs" />
     <Compile Include="30_IdeaListItem.cs" />
+    <Compile Include="12_ProjectDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -20,13 +20,7 @@ namespace Fledgling.WebMVC.Controllers
             return View(model);
         }
 
-        // Helper Method
-        private ProjectService CreateProjectService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProjectService(userId);
-            return service;
-        }
+
 
         // GET : Project-Create
         public ActionResult Create()
@@ -53,6 +47,24 @@ namespace Fledgling.WebMVC.Controllers
 
             return View(model);
 
+        }
+
+        // GET : Project-Details
+        public ActionResult Details(int id)
+        {
+            var svc = CreateProjectService();
+            var model = svc.GetProjectById(id);
+
+            return View(model);
+        }
+
+
+        // Helper Method
+        private ProjectService CreateProjectService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProjectService(userId);
+            return service;
         }
     }
 }

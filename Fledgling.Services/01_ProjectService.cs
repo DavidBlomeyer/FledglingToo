@@ -57,5 +57,26 @@ namespace Fledgling.Services
                 return query.ToArray();
             }
         }
+
+        public ProjectDetail GetProjectById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Projects
+                        .Single(e => e.ProjectID == id && e.OwnerID == _userId);
+                return
+                    new ProjectDetail
+                    {
+                        ProjectID = entity.ProjectID,
+                        ProjectName = entity.ProjectName,
+                        ProjectAuthor = entity.ProjectAuthor,
+                        ProjectThesis = entity.ProjectThesis,
+                        CreatedUTC = entity.CreatedUTC,
+                        ModifiedUTC = entity.ModifiedUTC
+                    };
+            }
+        }
     }
 }
