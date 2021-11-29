@@ -15,10 +15,17 @@ namespace Fledgling.WebMVC.Controllers
         // GET: Project-Index
         public ActionResult Index()
         {
+            ProjectService service = CreateProjectService();
+            var model = service.GetProjects();
+            return View(model);
+        }
+
+        // Helper Method
+        private ProjectService CreateProjectService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ProjectService(userId);
-            var model = service.GetProjects(); 
-            return View(model);
+            return service;
         }
 
         // GET : Project-Create
@@ -32,17 +39,20 @@ namespace Fledgling.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProjectCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
+            
+            var service = CreateProjectService();
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProjectService(userId);
+            if (service.CreateProject(model))
+                {
+                    TempData["SaveResult"] = "Your project was created";
+                    return RedirectToAction("Index");
+                };
 
-            service.CreateProject(model);
+            ModelState.AddModelError("", "Project could not be created.");
 
-            return RedirectToAction("Index");
+            return View(model);
+
         }
     }
 }
