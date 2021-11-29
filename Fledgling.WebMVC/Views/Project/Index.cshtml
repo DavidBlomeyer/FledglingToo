@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Fledgling.WebMVC.Models.ProjectListItem>
+﻿@model IEnumerable<Fledgling.Models.ProjectListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -18,6 +18,12 @@
             @Html.DisplayNameFor(model => model.ProjectName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ProjectAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectThesis)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedUTC)
         </th>
         <th></th>
@@ -30,6 +36,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectThesis)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedUTC)

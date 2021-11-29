@@ -1,4 +1,6 @@
-﻿using Fledgling.WebMVC.Models;
+﻿using Fledgling.Models;
+using Fledgling.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,9 @@ namespace Fledgling.WebMVC.Controllers
         // GET: Project-Index
         public ActionResult Index()
         {
-            var model = new ProjectListItem[0]; 
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProjectService(userId);
+            var model = service.GetProjects(); 
             return View(model);
         }
 
@@ -28,11 +32,17 @@ namespace Fledgling.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProjectCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProjectService(userId);
+
+            service.CreateProject(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

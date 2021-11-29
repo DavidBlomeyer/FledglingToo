@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Fledgling.WebMVC.Models
+namespace Fledgling.Models
 {
-    public class RequirementListItem
+    public class IdeaListItem
     {
     }
 }

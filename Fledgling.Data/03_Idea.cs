@@ -17,7 +17,7 @@ namespace Fledgling.Data
 
         // Foreign Keys
         [ForeignKey(nameof(Visitor))]
-        public int MemberId { get; set; }
+        public int VisitorID { get; set; }
         public Visitor Visitor { get; set; }
 
         [ForeignKey(nameof(Project))]
