@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202111291530162_SandsTwo.Designer.cs">
       <DependentUpon>202111291530162_SandsTwo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111291548072_SandsThree.cs" />
+    <Compile Include="Migrations\202111291548072_SandsThree.Designer.cs">
+      <DependentUpon>202111291548072_SandsThree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="00_Visitor.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111291530162_SandsTwo.resx">
       <DependentUpon>202111291530162_SandsTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111291548072_SandsThree.resx">
+      <DependentUpon>202111291548072_SandsThree.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
