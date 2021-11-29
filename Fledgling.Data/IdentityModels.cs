@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -32,6 +33,10 @@ namespace Fledgling.Data
         }
 
         public DbSet<Visitor> Visitors { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Requirement> Requirements { get; set; }
+        public DbSet<Idea> Ideas { get; set; }
+
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
