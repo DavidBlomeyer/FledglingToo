@@ -20,8 +20,6 @@ namespace Fledgling.WebMVC.Controllers
             return View(model);
         }
 
-
-
         // GET : Project-Create
         public ActionResult Create()
         {
@@ -46,7 +44,6 @@ namespace Fledgling.WebMVC.Controllers
             ModelState.AddModelError("", "Project could not be created.");
 
             return View(model);
-
         }
 
         // GET : Project-Details

@@ -50,6 +50,8 @@ namespace Fledgling.Services
                                 {
                                     ProjectID = e.ProjectID,
                                     ProjectName = e.ProjectName,
+                                    ProjectAuthor = e.ProjectAuthor,
+                                    ProjectThesis = e.ProjectThesis,
                                     CreatedUTC = e.CreatedUTC
                                 }
                         );
