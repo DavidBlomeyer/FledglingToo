@@ -33,5 +33,8 @@ namespace Fledgling.Data
             get { return FirstName + " " + LastName; }
         }
         public string Password { get; set; }
+
+        public DateTimeOffset CreatedUTC { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
     }
 }

@@ -169,12 +169,21 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\03_IdeaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\00_VisitorController.cs" />
+    <Compile Include="Controllers\01_ProjectController.cs" />
+    <Compile Include="Controllers\02_RequirementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\30_IdeaListItem.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\00_VisitorListItem.cs" />
+    <Compile Include="Models\10_ProjectListItem.cs" />
+    <Compile Include="Models\20_RequirementListItem.cs" />
+    <Compile Include="Models\11_ProjectCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -234,9 +243,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Project\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Idea\" />
+    <Folder Include="Views\Requirement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
