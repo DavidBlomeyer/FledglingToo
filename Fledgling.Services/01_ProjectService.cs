@@ -78,5 +78,38 @@ namespace Fledgling.Services
                     };
             }
         }
+
+        public bool UpdateProject(ProjectEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Projects
+                        .Single(e => e.ProjectID == model.ProjectID && e.OwnerID == _userId);
+
+                entity.ProjectName = model.ProjectName;
+                entity.ProjectAuthor = model.ProjectAuthor;
+                entity.ProjectThesis = model.ProjectThesis;
+                entity.ModifiedUTC = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteProject(int projectId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Projects
+                        .Single(e => e.ProjectID == projectId && e.OwnerID == _userId);
+
+                ctx.Projects.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

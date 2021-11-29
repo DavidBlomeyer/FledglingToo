@@ -58,6 +58,72 @@ namespace Fledgling.WebMVC.Controllers
             return View(model);
         }
 
+        // GET : Project-Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateProjectService();
+            var detail = service.GetProjectById(id);
+            var model =
+                new ProjectEdit
+                {
+                    ProjectID = detail.ProjectID,
+                    ProjectName = detail.ProjectName,
+                    ProjectAuthor = detail.ProjectAuthor,
+                    ProjectThesis = detail.ProjectThesis
+                };
+            return View(model);
+        }
+
+        // POST : Project-Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ProjectEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ProjectID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateProjectService();
+
+            if (service.UpdateProject(model))
+                {
+                    TempData["SaveResult"] = "Your project was updated.";
+                    return RedirectToAction("Index");
+                }
+
+            ModelState.AddModelError("", "Your project could not be updated.");
+
+            return View();
+        }
+
+        // GET : Project-Delete
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateProjectService();
+            var model = svc.GetProjectById(id);
+
+            return View(model);
+        }
+
+        // POST : Project-Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteProject(int id)
+        {
+            var service = CreateProjectService();
+
+            service.DeleteProject(id);
+
+            TempData["SaveResult"] = "Your project was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
 
         // Helper Method
         private ProjectService CreateProjectService()
