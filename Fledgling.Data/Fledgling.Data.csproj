@@ -58,21 +58,13 @@
     <Compile Include="04_Audience.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="01_Project.cs" />
-    <Compile Include="Migrations\202111290445349_Initial.cs" />
-    <Compile Include="Migrations\202111290445349_Initial.Designer.cs">
-      <DependentUpon>202111290445349_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202111301538455_InitialCreate.cs" />
+    <Compile Include="Migrations\202111301538455_InitialCreate.Designer.cs">
+      <DependentUpon>202111301538455_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111291406187_SandsOne.cs" />
-    <Compile Include="Migrations\202111291406187_SandsOne.Designer.cs">
-      <DependentUpon>202111291406187_SandsOne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111291530162_SandsTwo.cs" />
-    <Compile Include="Migrations\202111291530162_SandsTwo.Designer.cs">
-      <DependentUpon>202111291530162_SandsTwo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111291548072_SandsThree.cs" />
-    <Compile Include="Migrations\202111291548072_SandsThree.Designer.cs">
-      <DependentUpon>202111291548072_SandsThree.cs</DependentUpon>
+    <Compile Include="Migrations\202111301631115_WindsOne.cs" />
+    <Compile Include="Migrations\202111301631115_WindsOne.Designer.cs">
+      <DependentUpon>202111301631115_WindsOne.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,17 +75,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111290445349_Initial.resx">
-      <DependentUpon>202111290445349_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111301538455_InitialCreate.resx">
+      <DependentUpon>202111301538455_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111291406187_SandsOne.resx">
-      <DependentUpon>202111291406187_SandsOne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111291530162_SandsTwo.resx">
-      <DependentUpon>202111291530162_SandsTwo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111291548072_SandsThree.resx">
-      <DependentUpon>202111291548072_SandsThree.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111301631115_WindsOne.resx">
+      <DependentUpon>202111301631115_WindsOne.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

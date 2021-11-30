@@ -3,17 +3,34 @@ namespace Fledgling.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Audiences",
+                c => new
+                    {
+                        AudienceID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Guid(nullable: false),
+                        IdeaId = c.Int(nullable: false),
+                        Who = c.String(),
+                        What = c.String(),
+                        Why = c.String(),
+                        When = c.String(),
+                        CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUTC = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.AudienceID)
+                .ForeignKey("dbo.Ideas", t => t.IdeaId, cascadeDelete: true)
+                .Index(t => t.IdeaId);
+            
             CreateTable(
                 "dbo.Ideas",
                 c => new
                     {
                         IdeaID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
-                        MemberId = c.Int(nullable: false),
                         ProjectId = c.Int(nullable: false),
                         IdeaName = c.String(),
                         IdeaAuthor = c.String(),
@@ -22,9 +39,7 @@ namespace Fledgling.Data.Migrations
                         ModifiedUTC = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.IdeaID)
-                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: false)
-                .ForeignKey("dbo.Visitors", t => t.MemberId, cascadeDelete: false)
-                .Index(t => t.MemberId)
+                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: true)
                 .Index(t => t.ProjectId);
             
             CreateTable(
@@ -33,16 +48,13 @@ namespace Fledgling.Data.Migrations
                     {
                         ProjectID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
-                        MemberId = c.Int(nullable: false),
                         ProjectName = c.String(),
                         ProjectAuthor = c.String(),
                         ProjectThesis = c.String(),
                         CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUTC = c.DateTimeOffset(precision: 7),
                     })
-                .PrimaryKey(t => t.ProjectID)
-                .ForeignKey("dbo.Visitors", t => t.MemberId, cascadeDelete: false)
-                .Index(t => t.MemberId);
+                .PrimaryKey(t => t.ProjectID);
             
             CreateTable(
                 "dbo.Requirements",
@@ -50,53 +62,16 @@ namespace Fledgling.Data.Migrations
                     {
                         RequirementID = c.Int(nullable: false, identity: true),
                         OwnerID = c.Guid(nullable: false),
-                        MemberId = c.Int(nullable: false),
                         ProjectId = c.Int(nullable: false),
-                        Goal = c.String(),
-                        SourceHeaderOne = c.String(),
-                        SourceBodyOne = c.String(),
-                        SourceHeaderTwo = c.String(),
-                        SourceBodyTwo = c.String(),
-                        SourceHeaderThree = c.String(),
-                        SourceBodyThree = c.String(),
-                        SourceHeaderFour = c.String(),
-                        SourceBodyFour = c.String(),
-                        SourceHeaderFive = c.String(),
-                        SourceBodyFive = c.String(),
-                        SourceHeaderSix = c.String(),
-                        SourceBodySix = c.String(),
-                        LinkHeaderOne = c.String(),
-                        LinkBodyOne = c.String(),
-                        LinkHeaderTwo = c.String(),
-                        LinkBodyTwo = c.String(),
-                        LinkHeaderThree = c.String(),
-                        LinkBodyThree = c.String(),
-                        LinkHeaderFour = c.String(),
-                        LinkBodyFour = c.String(),
-                        LinkHeaderFive = c.String(),
-                        LinkBodyFive = c.String(),
-                        LinkHeaderSix = c.String(),
-                        LinkBodySix = c.String(),
+                        ReqOrigin = c.String(),
+                        ReqDescription = c.String(),
+                        ReqLink = c.String(),
                         CreatedUTC = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUTC = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.RequirementID)
-                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: false)
-                .ForeignKey("dbo.Visitors", t => t.MemberId, cascadeDelete: false)
-                .Index(t => t.MemberId)
+                .ForeignKey("dbo.Projects", t => t.ProjectId, cascadeDelete: true)
                 .Index(t => t.ProjectId);
-            
-            CreateTable(
-                "dbo.Visitors",
-                c => new
-                    {
-                        VisitorID = c.Int(nullable: false, identity: true),
-                        OwnerID = c.Guid(nullable: false),
-                        FirstName = c.String(nullable: false),
-                        LastName = c.String(),
-                        Password = c.String(),
-                    })
-                .PrimaryKey(t => t.VisitorID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -116,8 +91,8 @@ namespace Fledgling.Data.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: false)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -151,7 +126,7 @@ namespace Fledgling.Data.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -163,7 +138,7 @@ namespace Fledgling.Data.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
         }
@@ -174,10 +149,8 @@ namespace Fledgling.Data.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Ideas", "MemberId", "dbo.Visitors");
+            DropForeignKey("dbo.Audiences", "IdeaId", "dbo.Ideas");
             DropForeignKey("dbo.Ideas", "ProjectId", "dbo.Projects");
-            DropForeignKey("dbo.Projects", "MemberId", "dbo.Visitors");
-            DropForeignKey("dbo.Requirements", "MemberId", "dbo.Visitors");
             DropForeignKey("dbo.Requirements", "ProjectId", "dbo.Projects");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -186,19 +159,17 @@ namespace Fledgling.Data.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Requirements", new[] { "ProjectId" });
-            DropIndex("dbo.Requirements", new[] { "MemberId" });
-            DropIndex("dbo.Projects", new[] { "MemberId" });
             DropIndex("dbo.Ideas", new[] { "ProjectId" });
-            DropIndex("dbo.Ideas", new[] { "MemberId" });
+            DropIndex("dbo.Audiences", new[] { "IdeaId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Visitors");
             DropTable("dbo.Requirements");
             DropTable("dbo.Projects");
             DropTable("dbo.Ideas");
+            DropTable("dbo.Audiences");
         }
     }
 }

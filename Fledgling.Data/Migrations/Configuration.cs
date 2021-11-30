@@ -10,6 +10,7 @@ namespace Fledgling.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "Fledgling.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Fledgling.Data.ApplicationDbContext context)

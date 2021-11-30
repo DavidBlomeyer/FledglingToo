@@ -1,0 +1,72 @@
+﻿@model Fledgling.Models.RequirementDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RequirementDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequirementID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequirementID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqOrigin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqOrigin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUTC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUTC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUTC)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

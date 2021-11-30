@@ -7,13 +7,13 @@ namespace Fledgling.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class SandsOne : IMigrationMetadata
+    public sealed partial class WindsOne : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SandsOne));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(WindsOne));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111291406187_SandsOne"; }
+            get { return "202111301631115_WindsOne"; }
         }
         
         string IMigrationMetadata.Source

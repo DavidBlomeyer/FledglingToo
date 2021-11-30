@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Fledgling.Models.RequirementListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Requirement Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequirementID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReqOrigin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReqDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReqLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequirementID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqOrigin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUTC)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RequirementID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RequirementID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RequirementID })
+        </td>
+    </tr>
+}
+
+</table>

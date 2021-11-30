@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="01_ProjectService.cs" />
     <Compile Include="03_IdeaService.cs" />
+    <Compile Include="04_AudienceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="02_RequirementService.cs" />
   </ItemGroup>

@@ -23,6 +23,7 @@ namespace Fledgling.Services
                 new Requirement()
                 {
                     OwnerID = _userId,
+                    ProjectID = model.ProjectID,
                     ReqOrigin = model.ReqOrigin,
                     ReqDescription = model.ReqDescription,
                     ReqLink = model.ReqLink,
