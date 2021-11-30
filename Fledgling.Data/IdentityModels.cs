@@ -35,7 +35,7 @@ namespace Fledgling.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Requirement> Requirements { get; set; }
         public DbSet<Idea> Ideas { get; set; }
-        public DbSet<Audience> Audeinces { get; set; }
+        public DbSet<Audience> Audiences { get; set; }
 
     }
 

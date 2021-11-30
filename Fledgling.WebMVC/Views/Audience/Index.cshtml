@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Fledgling.Models.AudienceListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Audience Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AudienceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Who)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.What)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Why)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.When)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AudienceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Who)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.What)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Why)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.When)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUTC)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AudienceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AudienceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AudienceID })
+        </td>
+    </tr>
+}
+
+</table>
