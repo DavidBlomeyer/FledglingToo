@@ -1,7 +1,4 @@
-﻿using Fledgling.Models;
-using Fledgling.Services;
-using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +6,9 @@ using System.Web.Mvc;
 
 namespace Fledgling.WebMVC.Controllers
 {
-    [Authorize]
-    public class IdeaController : Controller
+    public class AudienceController : Controller
     {
-        // GET: Idea
+        // GET: Audience
         public ActionResult Index()
         {
             return View();

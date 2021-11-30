@@ -63,6 +63,10 @@
     <Compile Include="31_IdeaCreate.cs" />
     <Compile Include="32_IdeaDetail.cs" />
     <Compile Include="33_IdeaEdit.cs" />
+    <Compile Include="40_AudienceListItem.cs" />
+    <Compile Include="41_AudienceCreate.cs" />
+    <Compile Include="42_AudienceDetail.cs" />
+    <Compile Include="43_AudienceEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="21_RequirementCreate.cs" />
     <Compile Include="22_RequirementDetail.cs" />

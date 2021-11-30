@@ -1,10 +1,15 @@
 ﻿@model Fledgling.Models.ProjectCreate
 
+@{
+    ViewBag.Title = "Create";
+}
 
-@using (Html.BeginForm()) 
+<h2>Project Create</h2>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ProjectCreate</h4>
         <hr />
