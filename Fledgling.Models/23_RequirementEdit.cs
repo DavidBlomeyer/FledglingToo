@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Fledgling.Models
 {
-    public class RequirementListItem
+    public class RequirementEdit
     {
         public int RequirementID { get; set; }
         //public int ProjectID { get; set; }
@@ -14,8 +14,5 @@ namespace Fledgling.Models
         public string ReqOrigin { get; set; }
         public string ReqDescription { get; set; }
         public string ReqLink { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUTC { get; set; }
     }
 }

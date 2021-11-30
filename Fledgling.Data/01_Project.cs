@@ -15,11 +15,6 @@ namespace Fledgling.Data
         public int ProjectID { get; set; }
         public Guid OwnerID { get; set; }
 
-        //// Foreign Keys
-        //[ForeignKey(nameof(Visitor))]
-        //public int VisitorID { get; set; }
-        //public Visitor Visitor { get; set; }
-
         // Virtual Lists
         public virtual List<Requirement> _requirements { get; set; }
         public virtual List<Idea> _ideas { get; set; }

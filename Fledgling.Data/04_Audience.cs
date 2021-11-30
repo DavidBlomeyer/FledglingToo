@@ -8,25 +8,23 @@ using System.Threading.Tasks;
 
 namespace Fledgling.Data
 {
-    public class Idea
+    public class Audience
     {
         // Key
         [Key]
-        public int IdeaID { get; set; }
+        public int AudienceID { get; set; }
         public Guid OwnerID { get; set; }
 
         // Foreign Keys
-        [ForeignKey(nameof(Project))]
-        public int ProjectId { get; set; }
-        public Project Project { get; set; }
-
-        // Virtual Lists
-        public virtual List<Audience> _Audiences { get; set; }
+        [ForeignKey(nameof(Idea))]
+        public int IdeaId { get; set; }
+        public Idea Idea { get; set; }
 
         // Variables
-        public string IdeaName { get; set; }
-        public string IdeaAuthor { get; set; }
-        public string IdeaThesis { get; set; }
+        public string Who { get; set; }
+        public string What { get; set; }
+        public string Why { get; set; }
+        public string When { get; set; }
 
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset? ModifiedUTC { get; set; }

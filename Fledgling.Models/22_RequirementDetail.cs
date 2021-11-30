@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Fledgling.Models
 {
-    public class ProjectDetail
+    public class RequirementDetail
     {
-        public int ProjectID { get; set; }
+        public int RequirementID { get; set; }
+        //public int ProjectID { get; set; }
 
-        public string ProjectName { get; set; }
-        public string ProjectAuthor { get; set; }
-        public string ProjectThesis { get; set; }
+        public string ReqOrigin { get; set; }
+        public string ReqDescription { get; set; }
+        public string ReqLink { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUTC { get; set; }

@@ -54,14 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="00_VisitorListItem.cs" />
     <Compile Include="10_ProjectListItem.cs" />
     <Compile Include="11_ProjectCreate.cs" />
     <Compile Include="20_RequirementListItem.cs" />
     <Compile Include="30_IdeaListItem.cs" />
     <Compile Include="12_ProjectDetail.cs" />
     <Compile Include="13_ProjectEdit.cs" />
+    <Compile Include="31_IdeaCreate.cs" />
+    <Compile Include="32_IdeaDetail.cs" />
+    <Compile Include="33_IdeaEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="21_RequirementCreate.cs" />
+    <Compile Include="22_RequirementDetail.cs" />
+    <Compile Include="23_RequirementEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

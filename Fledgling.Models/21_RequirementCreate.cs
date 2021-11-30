@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Fledgling.Models
 {
-    public class ProjectCreate
+    public class RequirementCreate
     {
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
-        public string ProjectName { get; set; }
+        public string ReqOrigin { get; set; }
 
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
-        public string ProjectAuthor { get; set; }
+        public string ReqDescription { get; set; }
 
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
-        public string ProjectThesis { get; set; }
+        public string ReqLink { get; set; }
     }
 }

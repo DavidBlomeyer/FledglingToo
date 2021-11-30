@@ -171,7 +171,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\03_IdeaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\00_VisitorController.cs" />
     <Compile Include="Controllers\01_ProjectController.cs" />
     <Compile Include="Controllers\02_RequirementController.cs" />
     <Compile Include="Global.asax.cs">

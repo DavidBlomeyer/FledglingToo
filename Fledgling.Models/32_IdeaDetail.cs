@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fledgling.Services
+namespace Fledgling.Models
 {
-    public class VisitorService
+    class IdeaDetail
     {
     }
 }

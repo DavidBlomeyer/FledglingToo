@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="03_Idea.cs" />
+    <Compile Include="04_Audience.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="01_Project.cs" />
     <Compile Include="Migrations\202111290445349_Initial.cs" />
@@ -75,7 +76,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="00_Visitor.cs" />
     <Compile Include="02_Requirement.cs" />
   </ItemGroup>
   <ItemGroup>

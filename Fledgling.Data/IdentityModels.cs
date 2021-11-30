@@ -32,10 +32,10 @@ namespace Fledgling.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Visitor> Visitors { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Requirement> Requirements { get; set; }
         public DbSet<Idea> Ideas { get; set; }
+        public DbSet<Audience> Audeinces { get; set; }
 
     }
 
