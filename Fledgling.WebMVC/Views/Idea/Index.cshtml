@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Fledgling.Models.IdeaListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Idea Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaThesis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUTC)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaThesis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUTC)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdeaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdeaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdeaID })
+        </td>
+    </tr>
+}
+
+</table>

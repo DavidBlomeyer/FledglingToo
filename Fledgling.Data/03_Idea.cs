@@ -17,7 +17,7 @@ namespace Fledgling.Data
 
         // Foreign Keys
         [ForeignKey(nameof(Project))]
-        public int ProjectId { get; set; }
+        public int ProjectID { get; set; }
         public Project Project { get; set; }
 
         // Virtual Lists

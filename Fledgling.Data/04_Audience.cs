@@ -17,7 +17,7 @@ namespace Fledgling.Data
 
         // Foreign Keys
         [ForeignKey(nameof(Idea))]
-        public int IdeaId { get; set; }
+        public int IdeaID { get; set; }
         public Idea Idea { get; set; }
 
         // Variables

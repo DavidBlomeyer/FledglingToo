@@ -50,6 +50,7 @@ namespace Fledgling.Services
                                 new RequirementListItem
                                 {
                                     RequirementID = e.RequirementID,
+                                    ProjectID = e.ProjectID,
                                     ReqOrigin = e.ReqOrigin,
                                     ReqDescription = e.ReqDescription,
                                     ReqLink = e.ReqLink,
@@ -73,6 +74,7 @@ namespace Fledgling.Services
                     new RequirementDetail
                     {
                         RequirementID = entity.RequirementID,
+                        ProjectID = entity.ProjectID,
                         ReqOrigin = entity.ReqOrigin,
                         ReqDescription = entity.ReqDescription,
                         ReqLink = entity.ReqLink,

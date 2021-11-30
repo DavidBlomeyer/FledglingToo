@@ -66,6 +66,10 @@
     <Compile Include="Migrations\202111301631115_WindsOne.Designer.cs">
       <DependentUpon>202111301631115_WindsOne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111302018275_WindsTwo.cs" />
+    <Compile Include="Migrations\202111302018275_WindsTwo.Designer.cs">
+      <DependentUpon>202111302018275_WindsTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="02_Requirement.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111301631115_WindsOne.resx">
       <DependentUpon>202111301631115_WindsOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111302018275_WindsTwo.resx">
+      <DependentUpon>202111302018275_WindsTwo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

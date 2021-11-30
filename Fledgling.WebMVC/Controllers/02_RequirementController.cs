@@ -64,6 +64,7 @@ namespace Fledgling.WebMVC.Controllers
                 new RequirementEdit
                 {
                     RequirementID = detail.RequirementID,
+                    ProjectID = detail.ProjectID,
                     ReqOrigin = detail.ReqOrigin,
                     ReqDescription = detail.ReqDescription,
                     ReqLink = detail.ReqLink

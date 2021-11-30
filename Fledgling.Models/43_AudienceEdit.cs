@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fledgling.Models
 {
-    class AudienceEdit
+    public class AudienceEdit
     {
     }
 }
